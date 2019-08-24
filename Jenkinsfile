@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Checkout') {
       steps {
-        sh 'echo ${env}'
+        sh "echo ${env}"
     }
   }
 }
