@@ -25,7 +25,8 @@ pipeline {
         sh 'echo "${NODE_NAME}"'
         sh 'lsb_release -a'
         sh 'hostname'
-        sh 'mkdir -p data && echo "some data >> data/content"'
+        sh 'mkdir -p data'
+        sh 'echo "some data ${BUILD_NUMBER}" >> data/content'
         sh 'cat data/content'
         stash includes: 'data/*', name: 'stashstore'
       }
