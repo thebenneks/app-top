@@ -3,8 +3,7 @@ pipeline {
   stages {
     stage('Checkout') {
       steps {
-        git(url: 'https://github.com/thebenneks/app-top.git', branch: 'master')
-      }
+        sh 'echo $env'
     }
   }
 }
