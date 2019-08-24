@@ -1,4 +1,9 @@
 pipeline {
+  environment {
+    TEST_NAME = 'first class test'
+  }
+
+
   agent any
   stages {
     stage('Checkout') {
@@ -22,5 +27,16 @@ pipeline {
         sh 'hostname'
       }
     }// end stage Build
+
+        // next stage
+    stage ('Test'){
+      steps {
+        sh 'ls -lasg'
+        sh 'echo "${NODE_NAME}"'
+        sh 'lsb_release -a'
+        sh 'hostname'
+        sh 'echo ${TEST_NAME}'
+      }
+    }// end stage Test
   } 
 }
