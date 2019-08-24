@@ -19,12 +19,18 @@ pipeline {
     }// end stage Checkout
 
     // next stage
+
     stage ('Build'){
+      agent {
+        docker {
+          image 'maven'
+        }
+      }
       steps {
         sh 'ls -lasg'
         sh 'echo "${NODE_NAME}"'
         sh 'lsb_release -a'
-        sh 'hostname'
+        sh 'mvn clean install'
         sh 'mkdir -p data'
         sh 'echo "some data ${BUILD_NUMBER}" >> data/content'
         sh 'cat data/content'
