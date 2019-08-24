@@ -3,7 +3,12 @@ pipeline {
   stages {
     stage('Checkout') {
       steps {
-        sh "echo herewego"
+        // somehow it fails
+        sh 'echo "Hello World"'
+        sh '''
+            echo "Multiline shell steps works too"
+            ls -lah
+        '''
     }
   }
 }
