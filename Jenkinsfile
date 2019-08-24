@@ -1,7 +1,7 @@
 pipeline {
   environment {
     TEST_NAME = 'first class test'
-    SYSUSER = credentials('systemuser')
+    SYSUSER = credentials('sysid')
   }
 
 
