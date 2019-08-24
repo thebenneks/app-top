@@ -26,7 +26,8 @@ pipeline {
         sh 'lsb_release -a'
         sh 'hostname'
         sh 'mkdir -p data && echo "some data >> data/content"'
-        stash includes: 'data/**', name: 'stashstore'
+        sh 'cat data/content'
+        stash includes: 'data/*', name: 'stashstore'
       }
     }// end stage Build
 
