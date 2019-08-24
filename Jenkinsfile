@@ -11,6 +11,12 @@ pipeline {
             ls -lah
         '''
       }
-    }
+    }// end stage Checkout
+
+    // next stage
+    stage ('Build'){
+      sh 'ls -lasg'
+      sh 'echo "${NODE_NAME}"'
+    }// end stage Build
   } 
 }
