@@ -29,11 +29,11 @@ pipeline {
       steps {
         sh 'ls -lasg'
         sh 'echo "${NODE_NAME}"'
-        sh 'mvn clean install'
-        sh 'mkdir -p data'
-        sh 'echo "some data ${BUILD_NUMBER}" >> data/content'
-        sh 'cat data/content'
-        stash includes: 'data/*', name: 'stashstore'
+        sh 'mvn clean install -DskipTests'
+        sh 'mkdir -p bin'
+        sh 'cp target/*.jar bin/'
+        sh 'ls -aslg  b/'
+        stash includes: 'bin/*', name: 'stashstore'
       }
     }// end stage Build
 
@@ -41,10 +41,9 @@ pipeline {
     stage ('Test'){
       steps {
         unstash 'stashstore'
-        sh 'cat data/content'
+        sh 'ls -aslg bin/'
         sh 'ls -lasg'
         sh 'echo "${NODE_NAME}"'
-        sh 'lsb_release -a'
         sh 'hostname'
         sh 'echo ${TEST_NAME}'
       }
