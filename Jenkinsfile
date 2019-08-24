@@ -15,8 +15,12 @@ pipeline {
 
     // next stage
     stage ('Build'){
-      sh 'ls -lasg'
-      sh 'echo "${NODE_NAME}"'
+      steps {
+        sh 'ls -lasg'
+        sh 'echo "${NODE_NAME}"'
+        sh 'lsb_release -a'
+        sh 'hostname'
+      }
     }// end stage Build
   } 
 }
