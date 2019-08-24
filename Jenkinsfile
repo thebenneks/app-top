@@ -32,7 +32,7 @@ pipeline {
         sh 'mvn clean install -DskipTests'
         sh 'mkdir -p bin'
         sh 'cp target/*.jar bin/'
-        sh 'ls -aslg  b/'
+        sh 'ls -aslg  bin/'
         stash includes: 'bin/*', name: 'stashstore'
       }
     }// end stage Build
