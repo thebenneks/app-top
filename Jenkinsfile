@@ -29,7 +29,6 @@ pipeline {
       steps {
         sh 'ls -lasg'
         sh 'echo "${NODE_NAME}"'
-        sh 'lsb_release -a'
         sh 'mvn clean install'
         sh 'mkdir -p data'
         sh 'echo "some data ${BUILD_NUMBER}" >> data/content'
