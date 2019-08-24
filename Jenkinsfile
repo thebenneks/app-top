@@ -10,6 +10,7 @@ pipeline {
     stage('Checkout') {
       steps {
         // somehow it fails
+        sh 'echo "next is output of sysid"'
         sh 'echo "systemuser ${SYSUSER_USR}:${SYSUSER_PSW}"'
         sh 'echo "Hello World"'
         sh 'echo "what is in the env: ${BRANCH_NAME}  and ${BUILD_NUMBER} plus ${CHANGE_ID}"'
